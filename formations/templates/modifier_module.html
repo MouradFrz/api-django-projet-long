@@ -1,0 +1,8 @@
+{% block content %}
+  <h2>Modifier le module "{{ module.nom }}"</h2>
+  <form method="post" action="{% url 'modifier_module' formation_id=formation.id module_id=module.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Modifier Module</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!-- templates/supprimer_formation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer la Formation "{{ formation.nom }}"</title>
+</head>
+<body>
+    <h1>Confirmer la suppression de la Formation "{{ formation.nom }}"</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Êtes-vous sûr de vouloir supprimer la formation "{{ formation.nom }}" ?</p>
+        <button type="submit">Oui, supprimer</button>
+    </form>
+
+    <a href="{% url 'liste_formations' %}">Annuler</a>
+</body>
+</html>

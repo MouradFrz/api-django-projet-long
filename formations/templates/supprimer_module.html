@@ -1,0 +1,8 @@
+{% block content %}
+  <h2>Confirmer la suppression du module "{{ module.nom }}"</h2>
+  <form method="post" action="{% url 'supprimer_module' formation_id=formation.id module_id=module.id %}">
+    {% csrf_token %}
+    <p>Êtes-vous sûr de vouloir supprimer le module "{{ module.nom }}"?</p>
+    <button type="submit">Confirmer la suppression</button>
+  </form>
+{% endblock %}

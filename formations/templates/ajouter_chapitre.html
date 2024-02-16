@@ -1,0 +1,8 @@
+{% block content %}
+  <h2>Ajouter un chapitre au module {{ module.nom }}</h2>
+  <form method="post" action="{% url 'ajouter_chapitre' module_id=module.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Ajouter Chapitre</button>
+  </form>
+{% endblock %}

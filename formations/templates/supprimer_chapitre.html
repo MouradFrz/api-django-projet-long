@@ -1,0 +1,8 @@
+{% block content %}
+  <h2>Confirmer la suppression du chapitre "{{ chapitre.nom }}"</h2>
+  <form method="post" action="{% url 'supprimer_chapitre' module_id=module.id chapitre_id=chapitre.id %}">
+    {% csrf_token %}
+    <p>Êtes-vous sûr de vouloir supprimer le chapitre "{{ chapitre.nom }}"?</p>
+    <button type="submit">Confirmer la suppression</button>
+  </form>
+{% endblock %}

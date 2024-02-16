@@ -1,0 +1,8 @@
+{% block content %}
+  <h2>Ajouter un module à la formation {{ formation.nom }}</h2>
+  <form method="post" action="{% url 'ajouter_module' formation_id=formation.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Ajouter Module</button>
+  </form>
+{% endblock %}

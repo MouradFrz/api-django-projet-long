@@ -1,0 +1,30 @@
+<!-- templates/liste_formations.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Formations</title>
+</head>
+<body>
+    <h1>Liste des Formations</h1>
+    
+
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        {% for formation in formations %}
+            <li>{{ formation.nom }} | <a href="{% url 'modifier_formation' formation.id %}">Modifier</a> | <a href="{% url 'supprimer_formation' formation.id %}">Supprimer</a></li>
+        {% endfor %}
+    </ul>
+    
+
+    <a href="{% url 'ajouter_formation' %}">Ajouter une Formation</a>
+
+
+    
+</body>
+</html>
+
+

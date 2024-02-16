@@ -1,0 +1,24 @@
+<!-- templates/liste_modules.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Modules</title>
+</head>
+<body>
+    <h1>Liste des modules pour la formation {{ formation.nom }}</h1>
+
+    <ul>
+        {% for module in modules %}
+            <li>
+                {{ module.nom }}
+                | <a href="{% url 'modifier_module' formation.id module.id %}">Modifier</a>
+                | <a href="{% url 'supprimer_module' formation.id module.id %}">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'ajouter_module' formation.id %}">Ajouter un module</a>
+</body>
+</html>

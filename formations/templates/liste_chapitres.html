@@ -1,0 +1,33 @@
+<!-- templates/liste_modules.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Chapitres</title>
+</head>
+<body>
+    <h1>Liste des chapitres pour le module {{ module.nom }}</h1>
+
+    <ul>
+        {% for chapitre in chapitres %}
+            <li>
+                {{ chapitre.nom }}
+                | <a href="{% url 'modifier_chapitre'  module.id chapitre.id %}">Modifier</a>
+                | <a href="{% url 'supprimer_chapitre' module.id chapitre.id %}">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
+
+
+<h3>Liste des chapitres:</h3>
+<ul>
+    {% for chapitre in chapitres %}
+        <li>{{ chapitre.nom }} - {{ chapitre.description }} - <a href="{{ chapitre.fichier.url }}" target="_blank">Voir le fichier</a></li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'ajouter_chapitre' module.id %}">Ajouter un Chapitre au module {{ module.nom }}</a>
